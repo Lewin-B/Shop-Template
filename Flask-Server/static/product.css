@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.product-image img {
+    width: 300px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-info {
+    margin-left: 20px;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.product-description {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #337ab7;
+}
+
+.add-to-cart {
+    background-color: #337ab7;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+  
+.header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+  
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+  
+.header i {
+    font-size: 18px;
+}
+
+.sidebar {
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-header h2 {
+    font-size: 24px;
+    color: black;
+}
+
+.side-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.sidebar .container {
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product.css') }}">
+</head>
+<body>
+    <div class="header">
+        <button class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1>Sample Shop</h1>
+        <form action="{{ url_for('cart') }}" method="GET">
+            <button class="hamburger">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <div class="side-header">
+            <h2>Menu</h2>
+            <button class="close"><i class="fa-solid fa-x"></i></button>
+        </div>
+        
+        <div class="container">
+            <form action="{{ url_for('home') }}" method="GET">
+                <button class="home">Home</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <div class="product-image">
+            <img src="{{ product[0][2] }}" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h1 class="product-title">{{ product[0][1] }}</h1>
+            <p class="product-description">{{ product[0][3] }}</p>
+            <p class="product-price">Price: ${{ product[0][4] }}</p>
+            <p class="product-stock">Stock: {{ product[0][5] }}</p>
+            <form action="{{ url_for('cart') }}" method="POST">
+                <input type="hidden" name="product_id" value="{{ product[0][0] }}">
+                <input type="hidden" name="product_stock" value="{{ product[0][5] }}">
+                <input type="number" name="quantity" min='1' max="10" value="1" class="quantity-slider">
+                <button type="submit" class="add-to-cart">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='product.js') }}"></script>  
+<script src="https://kit.fontawesome.com/2851ce8c7e.js" crossorigin="anonymous"></script>
+</body>
+</html>

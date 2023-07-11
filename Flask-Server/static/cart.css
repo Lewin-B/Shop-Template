@@ -1,0 +1,139 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+  
+.header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+  
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+  
+.header i {
+    font-size: 18px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333333;
+    font-weight: bold;
+}
+
+.cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+}
+
+.cart-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+.cart-item img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+  
+.cart-item h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+  
+.cart-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+  
+.cart-item p:last-child {
+    margin-bottom: 0;
+}
+
+.checkout-section {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    
+}
+
+.checkout-section form {
+    margin-right: 5px;
+}
+
+.checkout-section button {
+    background-color: #337ab7;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.checkout-btn {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #333333;
+    border: none;
+    cursor: pointer;
+}
+
+.header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar {
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-header h2 {
+    font-size: 24px;
+}
+
+.side-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.sidebar .container {
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+}

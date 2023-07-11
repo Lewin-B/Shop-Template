@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+<title>Sample Shop</title>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <button class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1>Sample Shop</h1>
+        <form action="{{ url_for('cart') }}" method="GET">
+            <button class="hamburger">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <div class="side-header">
+            <h2>Menu</h2>
+            <button class="close"><i class="fa-solid fa-x"></i></button>
+        </div>
+        
+        <div class="container">
+            <form action="{{ url_for('home') }}" method="GET">
+                <button class="home">Home</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="row">
+            {% for product in products %}
+            <div class="product">
+                <form action="{{ url_for('product') }}" method="GET">
+                    <input type="hidden" name="product_id" value="{{ product[0] }}">
+                    <button type="submit" class="special">
+                        <img src="{{ product[2] }}" alt="{{ product[1] }}">
+                        <h2>{{ product[1] }}</h2>
+                    </button>
+                </form>
+
+                <form action="{{ url_for('cart') }}" method="POST">
+                    <input type="hidden" name="product_id" value="{{ product[0] }}">
+                    <input type="hidden" name="product_stock" value="{{ product[5] }}">
+                    <input type="number" name="quantity" min='1' max="10" value="1" class="quantity-slider">
+                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>       
+<script src="https://kit.fontawesome.com/2851ce8c7e.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

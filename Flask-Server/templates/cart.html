@@ -1,0 +1,65 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head section -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cart.css') }}">
+    <title>Sample Shop</title>
+</head>
+<body>
+    <div class="header">
+        <button class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <h1>Sample Shop</h1>
+        <form action="{{ url_for('cart') }}" method="GET">
+            <button class="hamburger">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="sidebar">
+        <div class="side-header">
+            <h2>Menu</h2>
+            <button class="close"><i class="fa-solid fa-x"></i></button>
+        </div>
+        
+        <div class="container">
+            <form action="{{ url_for('home') }}" method="GET">
+                <button class="home">Home</button>
+            </form>
+        </div>
+    </div>
+    
+    <h2>Your Cart</h2>
+    <div class="cart-items">
+        {% for product_id, item in cart.items() %}
+            <div class="cart-item">
+                <img src="{{ item.image }}" alt="Product Image">
+                <h2>{{ item.name }}</h2>
+                <p>Price: ${{ item.price }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <form action="{{ url_for('remove_from_cart') }}" method="POST">
+                    <input type="hidden" name="product_id" value="{{ product_id }}">
+                    <button type="submit">Remove from Cart</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="checkout-section">
+        <!-- Checkout button and other elements -->
+        <form action="{{ url_for('clear_cart') }}" method="POST">
+            <button type="submit">Clear Cart</button>
+        </form>
+        
+        <form action="{{ url_for('checkout') }}" method="GET">
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+
+    </div>
+
+<script src="https://kit.fontawesome.com/2851ce8c7e.js" crossorigin="anonymous"></script>
+</body>
+</html>

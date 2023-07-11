@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='payment_result.css') }}">
+    <title>Payment Success</title>
+</head>
+<body>
+    <div class="header">
+        <form action="{{ url_for('home') }}" method="GET">
+            <button>
+                <i class="fa-regular fa-circle"></i>
+            </button>
+        </form>
+        <h1>Sample Shop</h1>
+        <form action="{{ url_for('cart') }}" method="GET">
+            <button class="hamburger">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>Payment Successful</h1>
+        <p>Your payment has been processed successfully.</p>
+        <p>Order Number: {{ order_number }}</p>
+        <p>Thank you for your purchase!</p>
+    </div>
+
+<script src="https://kit.fontawesome.com/2851ce8c7e.js" crossorigin="anonymous"></script>
+</body>
+</html>
