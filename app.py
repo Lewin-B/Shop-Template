@@ -3,10 +3,6 @@ import uuid
 import pymysql
 from datetime import datetime
 import os
-from dotenv import load_dotenv
-
-# Get env variables
-load_dotenv()
 
 # connection
 print(os.environ.get('ENDPOINT'))
