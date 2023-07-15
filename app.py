@@ -1,18 +1,18 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from config import SECRET_KEY, PASSWORD, USERNAME, DATABASE_NAME, ENDPOINT
 import uuid
 import pymysql
 from datetime import datetime
+import os
 
 
 # connection
 connection = pymysql.connect(
-    host=ENDPOINT, user=USERNAME, passwd=PASSWORD, db=DATABASE_NAME)
+    host=os.environ.get('ENDPOINT'), user=os.environ.get('USERNAME'), passwd=os.environ.get('PASSWORD'), db=os.environ.get('DATABASE_NAME'))
 db = connection.cursor()
 
 # create the app
 app = Flask(__name__)
-app.secret_key = SECRET_KEY
+app.secret_key = os.environ.get('SECRET_KEY')
 
 
 def generate_order_number():
