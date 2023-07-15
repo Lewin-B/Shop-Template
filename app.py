@@ -3,9 +3,13 @@ import uuid
 import pymysql
 from datetime import datetime
 import os
+from dotenv import load_dotenv
 
+# Get env variables
+load_dotenv()
 
 # connection
+print(os.environ.get('ENDPOINT'))
 connection = pymysql.connect(
     host=os.environ.get('ENDPOINT'), user=os.environ.get('USERNAME'), passwd=os.environ.get('PASSWORD'), db=os.environ.get('DATABASE_NAME'))
 db = connection.cursor()
